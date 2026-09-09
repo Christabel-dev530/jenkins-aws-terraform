@@ -48,7 +48,7 @@ resource "aws_instance" "web_public" {
   availability_zone           = var.avail_zone
   subnet_id                   = aws_subnet.public_subnet.id
   associate_public_ip_address = true
-  user_data                   = file("nginx.sh")
+  user_data                   = file("install-nginx.sh")
   vpc_security_group_ids      = [aws_security_group.allow_web.id]
   key_name                    = "chris"
   tags = {
