@@ -1,6 +1,6 @@
 # VPC
 resource "aws_vpc" "main2" {
-  cidr_block           = var.vpc_cidr_block
+  cidr_block           = var.vpc_cidr_block_1
   enable_dns_support   = true
   enable_dns_hostnames = true
   tags = {
@@ -17,10 +17,10 @@ resource "aws_internet_gateway" "gw" {
 # Public Subnet
 resource "aws_subnet" "public_subnet2" {
   vpc_id                  = aws_vpc.main2.id
-  cidr_block              = var.subnet_cidr_block
+  cidr_block              = var.subnet_cidr_block_1
   map_public_ip_on_launch = true
   tags = {
-    Name = "my-server-Public-Subnet"
+    Name = "my-server-Public-Subnet2"
   }
 }
 # Route Table for Public Subnet
@@ -42,7 +42,7 @@ resource "aws_route_table_association" "public_assoc" {
 }
 
 # EC2 Instance in the Public Subnet
-resource "aws_instance" "web_public" {
+resource "aws_instance" "web_public2" {
   ami                         = var.ami
   instance_type               = var.instance_type
   availability_zone           = var.avail_zone
