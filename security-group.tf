@@ -1,5 +1,5 @@
 resource "aws_security_group" "allow_web" {
-  vpc_id = aws_vpc.main.id
+  vpc_id = aws_vpc.main2.id
   ingress {
     from_port   = 22
     to_port     = 22
